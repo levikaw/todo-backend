@@ -18,6 +18,35 @@ services:
       timeout: 5s
       retries: 5
       start_period: 10s
+    networks:
+      - todo.network
+
+  app-backend:
+    build: .
+    container_name: app-backend
+    restart: always
+    environment:
+      DATABASE_HOST: postgres
+      DATABASE_PORT: ${DATABASE_PORT}
+      DATABASE_USER: ${DATABASE_USER}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      DATABASE_DB: ${DATABASE_DB}
+      JWT_ACCESS_SECRET: ${JWT_ACCESS_SECRET}
+      EXPIRES_ACCESS_TOKEN_IN: ${EXPIRES_ACCESS_TOKEN_IN}
+      APP_PORT: ${APP_PORT}
+      APP_HOST: ${APP_HOST}
+      STRONG_ADMIN_PASSWORD: ${STRONG_ADMIN_PASSWORD}
+    ports:
+      - '${APP_PORT}:${APP_PORT}'
+    depends_on:
+      - postgres
+    networks:
+      - todo.network
+
+networks:
+  todo.network:
+    driver: bridge
+    name: todo.network
 
 volumes:
   postgres_data:
