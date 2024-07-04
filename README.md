@@ -10,7 +10,7 @@ The service provides:
 - сreating and updating tasks
 - getting all the tasks
 - сreating users with `user` role 
-- the user with the `admin` role is available in the app with **login:** `admin` and **password:** `admin`
+- the user with the `admin` role is available in the app with **login:** `admin` and your **password** from .env
 
 Swagger documentation is available on `/api-docs` path
 

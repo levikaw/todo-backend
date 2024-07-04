@@ -1,5 +1,4 @@
 import {
-  IsEmail,
   IsNotEmpty,
   IsString,
   IsStrongPassword,
@@ -14,7 +13,7 @@ export class LoginUserDto {
     required: true,
   })
   @IsNotEmpty()
-  @IsEmail()
+  @IsString()
   public login!: string;
 
   @ApiProperty({

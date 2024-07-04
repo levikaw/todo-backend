@@ -7,4 +7,4 @@ export const EXTEPTIONS = {
   CREATE_USER_ERROR: 'Unable to create user',
 } as const;
 
-export const MIN_LENGTH_PASSWORD = 5;
+export const MIN_LENGTH_PASSWORD = 8;

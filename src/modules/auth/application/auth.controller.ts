@@ -60,6 +60,9 @@ export class AuthController {
       return { accessToken };
     } catch (error) {
       Logger.error(error);
+      if ([401, 404].includes(error.status)) {
+        throw error;
+      }
       throw new HttpException(EXTEPTIONS.AUTH_ERROR, HttpStatus.UNAUTHORIZED);
     }
   }
